@@ -1,0 +1,6 @@
+export OS_TENANT_NAME=admin
+export OS_USERNAME=admin
+export OS_PASSWORD=openstack
+export OS_AUTH_URL=http://192.168.191.197:5000/v2.0/
+export SERVICE_ENDPOINT=http://192.168.191.197:35357/v2.0/
+export SERVICE_TOKEN=ADMIN

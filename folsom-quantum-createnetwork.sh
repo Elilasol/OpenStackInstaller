@@ -47,8 +47,8 @@ EXT_NET_ID=$(get_id quantum net-create ${EXTERNAL_NETWORK_NAME} --tenant-id ${TE
 
 # Create Floating IP Range
 #quantum subnet-create --ip_version 4 --allocation-pool start=${FLOAT_START},end=${FLOAT_END} --gateway ${FLOAT_GATEWAY} ${EXT_NET_ID} ${EXT_CIDR} -- --enable_dhcp=False
-#quantum subnet-create --ip_version 4 --allocation-pool start=${FLOAT_START},end=${FLOAT_END} --gateway ${FLOAT_GATEWAY} ${EXTERNAL_NETWORK_NAME} ${EXT_CIDR} -- --enable_dhcp=False
-quantum subnet-create ${EXTERNAL_NETWORK_NAME} ${EXT_CIDR} -- --enable_dhcp=True
+quantum subnet-create --ip_version 4 --allocation-pool start=${FLOAT_START},end=${FLOAT_END} --gateway ${FLOAT_GATEWAY} ${EXTERNAL_NETWORK_NAME} ${EXT_CIDR} -- --enable_dhcp=False
+#quantum subnet-create ${EXTERNAL_NETWORK_NAME} ${EXT_CIDR} -- --enable_dhcp=True
 
 # Set the gateway for the router
 quantum router-gateway-set ${ROUTER_ID} ${EXT_NET_ID}
