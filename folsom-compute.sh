@@ -17,6 +17,7 @@ nova_compute_install() {
 }
 
 nova_configure() {
+	sudo iptables -t nat -A PREROUTING -d 169.254.169.254/32 -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.191.197:8774
 	cat > /tmp/nova.conf << EOF
 [DEFAULT]
 logdir=/var/log/nova
