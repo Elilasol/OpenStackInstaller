@@ -28,8 +28,8 @@ install_base_packages() {
 system_tuning() {
 	sudo sed -i 's/^#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 	# Set OVS_EXTERNAL_INTERFACE up properly
-	sudo ifconfig $OVS_EXTERNAL_INTERFACE 0.0.0.0 up
-	sudo ifconfig $OVS_EXTERNAL_INTERFACE promisc
+#	sudo ifconfig $OVS_EXTERNAL_INTERFACE 0.0.0.0 up
+#	sudo ifconfig $OVS_EXTERNAL_INTERFACE promisc
 }
 
 # Main

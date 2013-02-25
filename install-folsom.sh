@@ -7,7 +7,7 @@ case $1 in
 		./folsom-mysql.sh 2>&1 >> /tmp/install.log
 		./folsom-keystone.sh 2>&1 >> /tmp/install.log
 		./folsom-glance.sh 2>&1 >> /tmp/install.log
-		./folsom-quantum.sh 2>&1 >> /tmp/install.log
+		#./folsom-quantum.sh 2>&1 >> /tmp/install.log
 		./folsom-cinder.sh 2>&1 >> /tmp/install.log
 		./folsom-nova.sh 2>&1 >> /tmp/install.log
 		./folsom-horizon.sh 2>&1 >> /tmp/install.log
@@ -16,13 +16,13 @@ case $1 in
 		if [[ -f adminrc ]]
 		then
 			. adminrc
-			./folsom-quantum-createnetwork.sh 2>&1 >> /tmp/install.log
+			#./folsom-quantum-createnetwork.sh 2>&1 >> /tmp/install.log
 		fi
 		;;
 	"compute")
 		# Run the installations
 		./folsom-common.sh 2>&1 >> /tmp/install.log
-		./folsom-quantum-agent.sh 2>&1 >> /tmp/install.log
+		#./folsom-quantum-agent.sh 2>&1 >> /tmp/install.log
 		./folsom-compute.sh 2>&1 >> /tmp/install.log
 		;;
 	*)

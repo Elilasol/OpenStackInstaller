@@ -13,7 +13,7 @@ NOVA_CONF=/etc/nova/nova.conf
 NOVA_API_PASTE=/etc/nova/api-paste.ini
 
 nova_compute_install() {
-	sudo apt-get -y install nova-api-metadata nova-compute nova-compute-qemu nova-doc
+	sudo apt-get -y install nova-api-metadata nova-compute nova-compute-qemu nova-doc nova-network
 }
 
 nova_configure() {
@@ -59,26 +59,19 @@ vncserver_proxyclient_address=$NOVA_ENDPOINT
 vncserver_listen=$NOVA_ENDPOINT
 
 # Network settings
-#dhcpbridge_flagfile=/etc/nova/nova.conf
-#dhcpbridge=/usr/bin/nova-dhcpbridge
-#network_manager=nova.network.manager.VlanManager
-#public_interface=$PUBLIC_INTERFACE
-#vlan_interface=$PRIVATE_INTERFACE
-#vlan_start=$VLAN_START
-#fixed_range=$PRIVATE_RANGE
-#routing_source_ip=$NOVA_ENDPOINT
-#network_size=1
-network_api_class=nova.network.quantumv2.api.API
-quantum_url=http://$QUANTUM_ENDPOINT:9696
-quantum_auth_strategy=keystone
-quantum_admin_tenant_name=$SERVICE_TENANT
-quantum_admin_username=quantum
-quantum_admin_password=$SERVICE_PASS
-quantum_admin_auth_url=http://$KEYSTONE_ENDPOINT:35357/v2.0
-libvirt_vif_driver=nova.virt.libvirt.vif.LibvirtHybridOVSBridgeDriver
-linuxnet_interface_driver=nova.network.linux_net.LinuxOVSInterfaceDriver
-firewall_driver=nova.virt.libvirt.firewall.IptablesFirewallDriver
+network_manager=nova.network.manager.FlatDHCPManager
 force_dhcp_release=True
+dhcpbridge_flagfile=/etc/nova/nova.conf
+dhcpbridge=/usr/bin/nova-dhcpbridge
+firewall_driver=nova.virt.libvirt.firewall.IptablesFirewallDriver
+public_interface=eth0
+flat_interface=eth1
+flat_network_bridge=br100
+fixed_range=$EXT_CIDR
+network_size=1
+flat_network_dhcp_start=$VLAN_START
+flat_injected=False
+connection_type=libvirt
 multi_host=True
 
 # Cinder #
