@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt-get -y purge vlan bridge-utils ntp mysql-* python-mysqldb keystone python-keystone python-keystoneclient glance glance-api python-glanceclient glance-common glance-registry python-glance nova-api nova-cert nova-compute nova-compute-kvm nova-doc nova-network nova-objectstore nova-scheduler nova-volume rabbitmq-server novnc nova-novncproxy nova-consoleauth openstack-dashboard memcached apache2* cinder-api cinder-scheduler cinder-volume iscsitarget open-iscsi iscsitarget-dkms python-cinderclient tgt openvswitch-switch
+sudo apt-get -y purge vlan bridge-utils ntp mysql-* python-mysqldb keystone python-keystone python-keystoneclient glance glance-api python-glanceclient glance-common glance-registry python-glance nova-api nova-cert nova-compute nova-compute-kvm nova-doc nova-network nova-objectstore nova-scheduler nova-volume rabbitmq-server novnc nova-novncproxy nova-consoleauth openstack-dashboard memcached apache2* cinder-api cinder-scheduler cinder-volume iscsitarget open-iscsi iscsitarget-dkms python-cinderclient tgt openvswitch-switch nova-network
 sudo apt-get -y autoremove
 
 rm -rf /etc/glance
