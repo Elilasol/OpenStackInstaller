@@ -53,7 +53,7 @@ keystone_create_services() {
 	keystone service-create --name ec2 --type ec2 --description 'EC2 Service'
 	#keystone service-create --name volume --type volume --description 'Volume Service'
 	keystone service-create --name cinder --type volume --description 'Cinder Service'
-	keystone service-create --name quantum --type network --description 'OpenStack Networking Service'
+#	keystone service-create --name quantum --type network --description 'OpenStack Networking Service'
 }
 
 keystone_create_service_endpoints() {
